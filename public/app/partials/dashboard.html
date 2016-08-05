@@ -1,5 +1,5 @@
 <div dash-class ng-if="dashboard">
-	<dashnav ng-if="!dashboard.meta.fullscreen"></dashnav>
+	<dashnav ng-if="!dashboard.meta.kiosk"></dashnav>
 
 	<div class="dashboard-container">
 
@@ -7,7 +7,7 @@
 		<dashboard-search></dashboard-search>
 		<div class="clearfix"></div>
 
-		<dashboard-submenu ng-if="submenuEnabled && !dashboard.meta.fullscreen" dashboard="dashboard"></dashboard-submenu>
+		<dashboard-submenu ng-if="submenuEnabled && !dashboard.meta.kiosk" dashboard="dashboard"></dashboard-submenu>
 
 		<div class="clearfix"></div>
 

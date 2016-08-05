@@ -21,7 +21,7 @@ function (angular, _, $) {
 
       $scope.exitFullscreen = function() {
         if (self.state.fullscreen) {
-          self.update({ fullscreen: false });
+          self.update({ fullscreen: false, kiosk: self.state.kiosk});
         }
       };
 
@@ -90,6 +90,7 @@ function (angular, _, $) {
       var state = $location.search();
       state.panelId = parseInt(state.panelId) || null;
       state.fullscreen = state.fullscreen ? true : null;
+      state.kiosk = state.kiosk ? true : null;
       state.edit =  (state.edit === "true" || state.edit === true) || null;
       state.editview = state.editview || null;
       return state;
@@ -98,6 +99,7 @@ function (angular, _, $) {
     DashboardViewState.prototype.serializeToUrl = function() {
       var urlState = _.clone(this.state);
       urlState.fullscreen = this.state.fullscreen ? true : null;
+      urlState.kiosk = this.state.kiosk ? true : null;
       urlState.edit = this.state.edit ? true : null;
       return urlState;
     };
@@ -105,6 +107,8 @@ function (angular, _, $) {
     DashboardViewState.prototype.update = function(state) {
       _.extend(this.state, state);
       this.dashboard.meta.fullscreen = this.state.fullscreen;
+      this.dashboard.meta.kiosk = this.state.kiosk;
+
 
       if (!this.state.fullscreen) {
         this.state.fullscreen = null;
