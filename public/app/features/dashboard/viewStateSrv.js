@@ -109,7 +109,6 @@ function (angular, _, $) {
       this.dashboard.meta.fullscreen = this.state.fullscreen;
       this.dashboard.meta.kiosk = this.state.kiosk;
 
-
       if (!this.state.fullscreen) {
         this.state.fullscreen = null;
         this.state.edit = null;
