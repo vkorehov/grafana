@@ -4,7 +4,7 @@
 : "${GF_PATHS_LOGS:=/var/log/grafana}"
 : "${GF_PATHS_PLUGINS:=/var/lib/grafana/plugins}"
 
-exec ./grafana-server  \
+exec /grafana-4.0.0-pre1/bin/grafana-server  \
   --homepath=/grafana-4.0.0-pre1             \
   --config=/grafana-4.0.0-pre1/conf/grafana.ini         \
   cfg:default.paths.data="$GF_PATHS_DATA"   \
